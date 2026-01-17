@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aprendizado de Palavras</title>
+
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Meta para PWA mobile -->
+  <meta name="theme-color" content="#1e1e1e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Aprendizado de Palavras</h1>
+    <span id="connection-status" class="status offline">Offline</span>
+  </header>
+
+  <main class="app-container">
+
+    <section class="word-card">
+
+      <div class="word-main">
+        <h2 id="word">—</h2>
+      </div>
+
+      <div class="word-section">
+        <h3>Significado</h3>
+        <p id="meaning">Carregando...</p>
+      </div>
+
+      <div class="word-section">
+        <h3>Etimologia</h3>
+        <p id="etymology">Carregando...</p>
+      </div>
+
+      <div class="word-section">
+        <h3>Inglês</h3>
+        <p id="translation">Carregando...</p>
+      </div>
+
+    </section>
+
+    <section class="controls">
+      <button id="next-word">Nova Palavra</button>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Funciona offline • Dados armazenados localmente</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+
+  <!-- Registro do Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log('Service Worker registrado:', reg.scope))
+          .catch(err => console.error('Erro no Service Worker:', err));
+      });
+    }
+  </script>
+
+</body>
+</html>
