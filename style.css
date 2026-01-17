@@ -1,0 +1,171 @@
+/* =========================
+   RESET E BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #121212;
+  --card-color: #1e1e1e;
+  --text-primary: #f1f1f1;
+  --text-secondary: #b5b5b5;
+  --accent-color: #4f8cff;
+  --offline-color: #ff5c5c;
+  --online-color: #4caf50;
+  --border-radius: 14px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+.app-header {
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.app-header h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.status {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.status.offline {
+  background-color: var(--offline-color);
+  color: #fff;
+}
+
+.status.online {
+  background-color: var(--online-color);
+  color: #fff;
+}
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+.app-container {
+  flex: 1;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* =========================
+   CARD DA PALAVRA
+========================= */
+.word-card {
+  background-color: var(--card-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.word-main {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.word-main h2 {
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+}
+
+/* =========================
+   SEÇÕES DE TEXTO
+========================= */
+.word-section h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.word-section p {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* =========================
+   CONTROLES
+========================= */
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.controls button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.1s ease, box-shadow 0.1s ease,
+    background-color 0.1s ease;
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.35);
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(79, 140, 255, 0.45);
+}
+
+.controls button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.35);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.app-footer {
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-top: 1px solid #2a2a2a;
+}
+
+/* =========================
+   RESPONSIVO (TELAS MAIORES)
+========================= */
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .word-main h2 {
+    font-size: 2.4rem;
+  }
+}
